@@ -46,14 +46,14 @@ namespace inprogress_winforms_app
             }
         }
 
-        private void button_plus_Click(object sender, EventArgs e)
+        public void button_plus_Click(object sender, EventArgs e)
         {
             var z = int.Parse(textBox_mennyiseg.Text);
             z = z + 1;
             textBox_mennyiseg.Text = z.ToString();
         }
 
-        private void button_minus_Click(object sender, EventArgs e)
+        public void button_minus_Click(object sender, EventArgs e)
         {
             var z = int.Parse(textBox_mennyiseg.Text);
             z = z - 1;

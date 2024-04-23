@@ -17,6 +17,7 @@ namespace UnitTestExample.Test
             var form = new Form1();
             var initialQuantity = 5;
             form.textBox_mennyiseg.Text = initialQuantity.ToString();
+            
 
             // Act
             form.button_plus_Click(null, null);
