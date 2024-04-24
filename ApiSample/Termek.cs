@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiSample
 {
-    internal class Termek
+    public class Termek
     {
         public int id;
         public string nev;
