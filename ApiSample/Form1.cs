@@ -18,7 +18,7 @@ namespace inprogress_winforms_app
 {
     public partial class Form1 : Form
     {
-        List<Termek> termeklista = new List<Termek>();
+        public List<Termek> termeklista = new List<Termek>();
         public Form1()
         {
             InitializeComponent();
@@ -65,12 +65,12 @@ namespace inprogress_winforms_app
 
         Api proxy = new Api(url, key);
 
-        private void textBox_kereses_TextChanged(object sender, EventArgs e)
+        public void textBox_kereses_TextChanged(object sender, EventArgs e)
         {
             Szures();
         }
 
-        private void Szures()
+        public void Szures()
         {
             List<string> szures = new List<string>();
             for (int i = 0; i < termeklista.Count; i++)
@@ -85,13 +85,13 @@ namespace inprogress_winforms_app
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = ((ListBox)sender).SelectedIndex + 1;
             textBox_mennyiseg.Text = (termeklista[index].keszlet).ToString();
         }
 
-        private void button_mentes_Click(object sender, EventArgs e)
+        public void button_mentes_Click(object sender, EventArgs e)
         {
             var index = listBox1.SelectedIndex + 1;
             var curproduct = termeklista[index];
@@ -107,9 +107,13 @@ namespace inprogress_winforms_app
             };
         }
 
-        private void button_megse_Click(object sender, EventArgs e)
+        public void button_megse_Click(object sender, EventArgs e)
         {
-            textBox_mennyiseg.Text = termeklista[listBox1.SelectedIndex + 1].keszlet.ToString();
+            int selectedIndex = listBox1.SelectedIndex;
+            if (selectedIndex >= 0 && selectedIndex < termeklista.Count)
+            {
+                textBox_mennyiseg.Text = termeklista[selectedIndex].keszlet.ToString();
+            }
         }
     }
 }
